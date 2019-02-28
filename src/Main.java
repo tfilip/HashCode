@@ -2,9 +2,11 @@ import pictures.CombinedPhoto;
 import pictures.Photo;
 import utils.Pair;
 import utils.Reader;
+import utils.Writer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.ArrayList;
@@ -29,7 +31,7 @@ public class Main {
             }
         });
 
-        verticalPhotos.addAll(verticalToHorizontal(horizontalPhotos));
+        horizontalPhotos.addAll(verticalToHorizontal(verticalPhotos));
 
         Collections.sort(horizontalPhotos, new Comparator<Photo>() {
             @Override
@@ -38,12 +40,18 @@ public class Main {
             }
         });
 
+        try {
+            Writer.writeToFile(new PrintStream(new File("out_" + args[0])), horizontalPhotos);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
     }
     
     public static ArrayList<Photo> verticalToHorizontal(ArrayList<Photo> photos) {
         ArrayList<Photo> rv = new ArrayList<>();
         for (int i = 0; i < photos.size(); i+=2) {
-            rv.add(new CombinedPhoto(rv.get(i), rv.get(i + 1)));
+            rv.add(new CombinedPhoto(photos.get(i), photos.get(i + 1)));
         }
         return rv;
     }

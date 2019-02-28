@@ -13,7 +13,7 @@ public class CombinedPhoto extends Photo {
 
     public CombinedPhoto(Photo photoA,Photo photoB) {
 
-        super(photoA.getPhotoType(),
+        super(PhotoType.HORIZONTAL,
                 (photoA.getNumberOfTags() + photoB.getNumberOfTags()), photoA.getTags(), -1);
 
         for(String tag: photoB.getTags()) {
