@@ -3,14 +3,14 @@ package utils;
 import pictures.Photo;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Reader {
     public static Pair readPhotos(Scanner s){
 
-        LinkedList<Photo> horizontalPhotos = new LinkedList<>();
-        LinkedList<Photo> verticalPhotos = new LinkedList<>();
+        ArrayList<Photo> horizontalPhotos = new ArrayList<>();
+        ArrayList<Photo> verticalPhotos = new ArrayList<>();
 
 
         int numberOfPhotos = Integer.valueOf(s.nextLine());
@@ -37,6 +37,6 @@ public class Reader {
             }
 
         }
-        return new Pair<LinkedList<Photo>>(verticalPhotos, horizontalPhotos);
+        return new Pair<ArrayList<Photo>>(verticalPhotos, horizontalPhotos);
     }
 }

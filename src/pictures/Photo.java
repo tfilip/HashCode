@@ -11,29 +11,25 @@ public class Photo {
     private PhotoType photoType;
     private int numberOfTags;
     private ArrayList<String> tags;
-    private boolean combined;
-    private Pair<Integer> ids;
+
+    public int getId() {
+        return id;
+    }
+
+    public Photo(){
+
+    }
 
     public Photo(PhotoType photoType, int numberOfTags, ArrayList<String> tags, Integer id) {
         this.photoType = photoType;
         this.numberOfTags = numberOfTags;
         this.tags = tags;
         this.id = id;
-        this.combined = false;
 
     }
 
     public PhotoType getPhotoType() {
         return photoType;
-    }
-
-    public void setIds(Pair<Integer> ids) {
-        this.combined = true;
-        this.ids = ids;
-    }
-
-    public Pair<Integer> getIds() {
-        return ids;
     }
 
     public void setPhotoType(PhotoType photoType) {
@@ -56,5 +52,8 @@ public class Photo {
         this.tags = tags;
     }
 
-
+    @Override
+    public String toString() {
+        return id + "\n";
+    }
 }
