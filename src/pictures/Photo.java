@@ -56,4 +56,20 @@ public class Photo {
     public String toString() {
         return id + "\n";
     }
+
+    public int getCommonNoOfTags(Photo B){
+        int rv = 0;
+        for(String tag:  B.getTags()){
+            if(this.getTags().contains(tag))
+                rv++;
+        }
+        return rv;
+    }
+
+    public int getMinNumberOfTags(Photo B){
+        return (this.getTags().size() < B.getTags().size())?
+                this.getTags().size():
+                B.getTags().size();
+    }
+
 }

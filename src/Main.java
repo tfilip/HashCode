@@ -46,12 +46,28 @@ public class Main {
             e.printStackTrace();
         }
 
+
+
     }
     
     public static ArrayList<Photo> verticalToHorizontal(ArrayList<Photo> photos) {
         ArrayList<Photo> rv = new ArrayList<>();
         for (int i = 0; i < photos.size(); i+=2) {
             rv.add(new CombinedPhoto(photos.get(i), photos.get(i + 1)));
+        }
+        return rv;
+    }
+
+    public static ArrayList<Photo> solutionOne(ArrayList<Photo> photos){
+        ArrayList<Photo> rv = new ArrayList<>();
+        for (int i = 0; i < photos.size() - 1; i++) {
+            for (int j = i; j < photos.size(); j++) {
+                float commonTags = photos.get(i)
+                        .getCommonNoOfTags(photos.get(j));
+                float minNumberOfTags = photos.get(i)
+                        .getMinNumberOfTags(photos.get(j));
+
+            }
         }
         return rv;
     }
